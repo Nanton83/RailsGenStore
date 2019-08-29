@@ -16,6 +16,21 @@ has_many :items
 has_many :distributors through: :items
 
 
+User
+user_name
+password
+cubits
+distributer t/f
+
+Distributer
+
+Item
+name
+brand_name
+sku
+price
+
+
 
 
 
