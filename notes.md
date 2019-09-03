@@ -17,6 +17,7 @@ has_many :distributors through: :items
 
 
 User
+email
 user_name
 password
 cubits
@@ -30,7 +31,20 @@ brand_name
 sku
 price
 
-
+def create
+  @user = User.new(user_params)
+  if User.exists?(email: params[:email]) # I think this should be `user_params[:email]` instead of `params[:email]`
+    flash[:error] = "User already exists." 
+    redirect_to 'whereever/you/want/to/redirect' and return
+  end
+  if @user.save
+    session[:user_id] = user.id
+    flash[:success] = "New User created."
+    redirect_to '/layouts/application'
+  else
+    render 'new'
+  end
+end
 
 
 
