@@ -31,6 +31,10 @@ brand_name
 sku
 price
 
+Store
+name
+location
+
 def create
   @user = User.new(user_params)
   if User.exists?(email: params[:email]) # I think this should be `user_params[:email]` instead of `params[:email]`
