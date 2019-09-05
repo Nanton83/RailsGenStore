@@ -73,3 +73,5 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+cat tmp/pids/server.pid | xargs -n1 -I pid kill -9 pid
