@@ -1,0 +1,11 @@
+<%= form_tag(sessions_path) do %>
+    
+    
+    <%= text_field_tag :user_name, '', :placeholder => "User Name" %><br>
+    <%= password_field_tag :password, '', :placeholder => "Password" %> <br>
+    <%= submit_tag "Submit" %><br>
+    
+    
+    
+    <%= link_to "Github Login", "/auth/github" %>
+<% end %>

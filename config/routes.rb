@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   
   root 'application#home'
 
-  get '/signin' => 'sessions#sign_in'
-  post '/signin' => 'sessions#create'
-  get '/signout' => 'sessions#destroy'
-  get '/auth/:provider/callback' => 'sessions#create'
+   get '/login' => 'sessions#new'
+   post '/sessions' => 'sessions#create'
+   get '/signout' => 'sessions#destroy'
+  # get '/auth/:provider/callback' => 'sessions#create'
 
-  resources :users
-  resources :items
+  resources :users, only: [:new, :create, :show]
+  resources :items, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
   
 end
