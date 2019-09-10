@@ -4,7 +4,6 @@ User
 has_many items through: store
 
 Distributor
-has_many :stores, through: :items
 has_many :items
 
 Item
@@ -14,6 +13,9 @@ belongs_to distributer (foreign_key distributor_id:integer)
 Store
 has_many :items
 has_many :distributors through: :items
+
+Cart
+belongs_to :user
 
 
 User
