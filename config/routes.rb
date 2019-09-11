@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :stores
+  
   root 'application#home'
 
    get '/login' => 'sessions#new'
