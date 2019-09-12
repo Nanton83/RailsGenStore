@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
         # binding.pry
         if @item.save
             redirect_to items_path(@item)
-        # else
-        #     redirect_to new_item_path
+        else
+            redirect_to new_item_path
         end 
     end
     
