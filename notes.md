@@ -1,10 +1,8 @@
 Models
 
-User
-has_many items through: store
-
 Distributor
 has_many :items
+has_many items through: stores
 
 Item
 belongs_to store (foreign_key store_id:integer)
@@ -14,9 +12,8 @@ Store
 has_many :items
 has_many :distributors through: :items
 
-Cart
-belongs_to :user
-
+<!-- User
+has_many items through: store -->
 
 User
 email
