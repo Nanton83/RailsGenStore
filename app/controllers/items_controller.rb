@@ -10,8 +10,9 @@ class ItemsController < ApplicationController
 
     def create
         @item = Item.new(item_params)
-        @item.user_id = current_user.id
-        # binding.pry
+        @item.distributor_id = current_user.id
+        @item.store_id = Store.find_by(params[:store_id])
+        binding.pry
         if @item.save
             redirect_to items_path(@item)
         else

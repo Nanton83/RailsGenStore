@@ -8,6 +8,10 @@ class StoresController < ApplicationController
         @store = Store.new
     end
 
+    def show
+        @store = Store.find_by(id: params[:id])
+    end
+
     def create
         @store = Store.new(store_params)
         # @store.user_id = current_user.id

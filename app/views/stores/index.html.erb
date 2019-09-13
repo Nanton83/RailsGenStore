@@ -1,3 +1,5 @@
 <% @stores.each do |store| %>
-<%= store.name %> - <%= store.location %><br>
-<% end %><br>
+
+<li><%= link_to "#{store.name} - #{store.location}", store_path(store) %></li><br>
+
+<% end %>

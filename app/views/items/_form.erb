@@ -1,0 +1,21 @@
+<h1>New Item</h1>
+
+<%= form_for @item do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :brand_name %>
+    <%= f.text_field :brand_name %>
+    <br>
+
+    <%= f.label :sku %>
+    <%= f.number_field :sku %>
+    <br>
+
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+    <br>
+
+    <%= f.submit%>
+<% end %>
