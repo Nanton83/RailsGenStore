@@ -9,8 +9,9 @@ Rails.application.routes.draw do
    get '/signout' => 'sessions#destroy'
   get '/auth/:provider/callback' => 'sessions#create'
 
-  resources :users, only: [:new, :create, :show]
+  resources :distributors, only: [:new, :create, :show]
   resources :items
   resources :sessions, only: [:new, :create, :destroy]
+  resources :stores
   
 end

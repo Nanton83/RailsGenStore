@@ -6,7 +6,7 @@ has_many items through: stores
 
 Item
 belongs_to store (foreign_key store_id:integer)
-belongs_to distributer (foreign_key distributor_id:integer)
+belongs_to distributor (foreign_key distributor_id:integer)
 
 Store
 has_many :items
@@ -20,9 +20,9 @@ email
 user_name
 password
 cubits
-distributer t/f
+distributor t/f
 
-Distributer
+Distributor
 
 Item
 name

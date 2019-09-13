@@ -8,18 +8,18 @@ class SessionsController < ApplicationController
     def create
         
         if auth_hash = request.env["omniauth.auth"]
-            user = Distributor.find_or_create_by_omniauth(auth_hash)
-            session[:user_id] = user.id
+            distributor = Distributor.find_or_create_by_omniauth(auth_hash)
+            session[:distributor_id] = distributor.id
     
-            redirect_to user_path(user)
+            redirect_to distributor_path(distributor)
         
         elsif
             
-            user = User.find_by(user_name: params[:user_name])
-            user && user.authenticate(params[:password])
-            session[:user_id] = user.id
+            distributor = Distributor.find_by(user_name: params[:user_name])
+            distributor && distributor.authenticate(params[:password])
+            session[:distributor_id] = distributor.id
             
-            redirect_to user_path(user)
+            redirect_to distributor_path(distributor)
         else
             
             render 'sessions/new'
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 end
     
     def destroy
-        session[:user_id] = nil
+        session[:distributor_id] = nil
         redirect_to root_path
     end
 

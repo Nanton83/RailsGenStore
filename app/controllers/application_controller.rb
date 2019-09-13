@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-    @current_user ||= Distributor.find_by(id: session[:user_id]) if session[:user_id]
+    @current_user ||= Distributor.find_by(id: session[:distributor_id]) if session[:distributor_id]
   end
   
   def logged_in?

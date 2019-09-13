@@ -1,9 +1,9 @@
 <li><%= link_to "#{current_user.user_name}'s Profile", user_path(current_user) %></li>
 
 <% @items.each do |item| %>
-<%= item.name %>
+<%= item.name %><br>
 <% end %><br>
 
-<% if current_user.distributer %>
+
     <p><%= link_to 'Create New Item', new_item_path %></p>
-    <% end %>
+    
