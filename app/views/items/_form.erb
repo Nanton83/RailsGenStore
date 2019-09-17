@@ -1,6 +1,10 @@
 <h1>New Item</h1>
 
 <%= form_for @item do |f| %>
+
+    <%= f.collection_select :store_id, Store.all, :id, :name  %><br>
+    
+
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -16,6 +20,8 @@
     <%= f.label :price %>
     <%= f.number_field :price %>
     <br>
+
+  
 
     <%= f.submit%>
 <% end %>

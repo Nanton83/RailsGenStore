@@ -1,5 +1,9 @@
 <% @stores.each do |store| %>
 
 <li><%= link_to "#{store.name} - #{store.location}", store_path(store) %></li><br>
+<% store.items.each do |item| %>
+<%= "#{item.name} - #{item.brand_name} - $#{item.price}" %>
+<% end %>
+
 
 <% end %>

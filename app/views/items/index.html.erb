@@ -1,4 +1,4 @@
-<li><%= link_to "#{current_user.user_name}'s Profile", user_path(current_user) %></li>
+<li><%= link_to "#{current_user.user_name}'s Profile", distributor_path(current_user) %></li>
 
 <% @items.each do |item| %>
 <%= item.name %><br>

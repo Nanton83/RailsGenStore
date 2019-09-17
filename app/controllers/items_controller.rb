@@ -1,7 +1,16 @@
 class ItemsController < ApplicationController
 
     def index
-        @items = Item.all
+        if params[:store_id]
+            @items = Store.find(params[:store_id]).items
+        else
+            @items = Item.all
+        end
+    end
+
+    def show
+        @store = Store.find_by(id: params[store_id])
+        @item = @store.items.find_by(id: params[:id])
     end
 
     def new
@@ -11,7 +20,7 @@ class ItemsController < ApplicationController
     def create
         @item = Item.new(item_params)
         @item.distributor_id = current_user.id
-        @item.store_id = Store.find_by(params[:store_id])
+
         binding.pry
         if @item.save
             redirect_to items_path(@item)
@@ -23,6 +32,6 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:user_id, :name, :brand_name, :sku, :price)
+        params.require(:item).permit(:distributor_id, :name, :brand_name, :sku, :price, :store_id)
     end
 end
