@@ -3,7 +3,7 @@
 
 <% current_user.items.each do |item| %>
 <%= "#{item.store.name} - #{item.name}" %>
-<%= link_to "Edit Item", edit_item_path(item) %><br>
+<%= link_to "Edit Item", edit_store_item_path(item.store, item) %><br>
 
 <% end %><br>
 

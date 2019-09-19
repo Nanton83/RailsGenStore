@@ -10,7 +10,7 @@ Distributor.destroy_all
 Item.destroy_all
 Store.destroy_all
 
-Distributor.create!(user_name: "Nick", email: "Nick@email.com", password_digest: "password")
+Distributor.create!(user_name: "Nick", email: "Nick@email.com", password: "password")
 Store.create!(name: "Nicks", location: "Wake Forest, NC")
 
 

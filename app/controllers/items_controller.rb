@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     end
 
     def show
-        @store = Store.find_by(id: params[store_id])
+        @store = Store.find_by(id: params[:store_id])
         @item = @store.items.find_by(id: params[:id])
     end
 
@@ -30,9 +30,10 @@ class ItemsController < ApplicationController
     end
 
     def edit
-        @item = Item.find_by(id: params[:id])
+        @store = Store.find_by(id: params[:store_id])
         
-        redirect_to edit_store_item_path(@item)
+        @item = @store.items.find_by(id: params[:id])
+        
     end
     
     private
