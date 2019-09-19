@@ -15,8 +15,8 @@ class StoresController < ApplicationController
     def create
     
         @store = Store.new(store_params)
-        binding.pry
-        @store.distributor_id = current_user.id
+        
+       
         
         # @store.user_id = current_user.id
         # binding.pry
@@ -30,6 +30,6 @@ class StoresController < ApplicationController
     private
 
     def store_params
-        params.require(:store).permit(:name, :location, :distributor_id)
+        params.require(:store).permit(:name, :location)
     end
 end

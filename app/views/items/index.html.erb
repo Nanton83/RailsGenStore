@@ -1,7 +1,10 @@
 <li><%= link_to "#{current_user.user_name}'s Profile", distributor_path(current_user) %></li>
 
-<% @items.each do |item| %>
-<%= item.name %><br>
+
+<% current_user.items.each do |item| %>
+<%= "#{item.store.name} - #{item.name}" %>
+<%= link_to "Edit Item", edit_item_path(item) %><br>
+
 <% end %><br>
 
 

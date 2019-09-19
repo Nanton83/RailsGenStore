@@ -9,17 +9,21 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   get '/auth/:provider/callback' => 'sessions#create'
 
-
-  resources :distributors, only: [:new, :create, :show]
-  resources :items
-  resources :sessions, only: [:new, :create, :destroy]
   resources :stores do
     resources :items
   end
+  
   resources :distributors do 
     resources :stores
   end
+
+  resources :items
+
+  resources :distributors, only: [:new, :create, :show]
+
+  resources :sessions, only: [:new, :create, :destroy]
   
+  resources :stores
 end
 
 # Hi @Nanton! It sounds like a good case for 

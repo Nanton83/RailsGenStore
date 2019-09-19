@@ -4,6 +4,7 @@
   
   <% if current_user %>
               <li><%= link_to "#{current_user.user_name}'s Profile", distributor_path(current_user) %></li>
+              <li><%= link_to "Stores", stores_path %></li>
               <li><%= link_to "Log Out", signout_path %></li>
             <% else %>
               <li><%= link_to "Sign Up", new_distributor_path %></li>

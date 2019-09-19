@@ -1,4 +1,7 @@
 
 <h1> <%= @store.name.upcase %> </h1><br>
+<% @store.items.each do |item| %>
+<%= "#{item.name} - #{item.brand_name} - $#{item.price}" %>
+<% end %>
 
 <li><%= link_to "Create Items", new_store_item_path(@store) %></li>

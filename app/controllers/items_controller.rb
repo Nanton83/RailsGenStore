@@ -21,12 +21,18 @@ class ItemsController < ApplicationController
         @item = Item.new(item_params)
         @item.distributor_id = current_user.id
 
-        binding.pry
+        
         if @item.save
-            redirect_to items_path(@item)
+            redirect_to items_path (@item)
         else
             redirect_to new_item_path
         end 
+    end
+
+    def edit
+        @item = Item.find_by(id: params[:id])
+        
+        redirect_to edit_store_item_path(@item)
     end
     
     private
