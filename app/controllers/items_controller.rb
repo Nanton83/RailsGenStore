@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
 
     def show
         @store = Store.find_by(id: params[:store_id])
-        @item = @store.items.find_by(id: params[:id])
+        @item = Item.find_by(id: params[:id])
     end
 
     def new
@@ -32,9 +32,13 @@ class ItemsController < ApplicationController
 
     def edit
         @store = Store.find_by(id: params[:store_id])
-        
         @item = @store.items.find_by(id: params[:id])
-        
+    end
+
+    def update
+        @item = Item.find_by(id: params[:id])
+        @item.update(item_params)
+        redirect_to item_path(@item)
     end
     
     private
