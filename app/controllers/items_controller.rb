@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
             @items = Store.find(params[:store_id]).items
         else
             @items = Item.all
+            # need to update
         end
     end
 
