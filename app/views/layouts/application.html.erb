@@ -39,6 +39,20 @@
       }
       .row.content {height:auto;} 
     }
+
+    #baseModel{
+    background-color: white;
+    width: 100%;
+    color: black;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    float: none;
+}
   </style>
 </head>
 <body>
@@ -51,11 +65,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="<%= root_path %>">Rails General Store</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+      <% if current_user %>
+        <li class="active"><a href="<%= distributor_path(current_user) %>"><%="#{current_user.user_name}'s Profile"%></a></li>
+        <% end %>
         <li><a href="#">About</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Contact</a></li>
@@ -82,12 +98,12 @@
       <%= yield %>
     </div>
     <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
+      <%# <div class="well"> %>
+        <%# <p>ADS</p> %>
+      <%# </div> %>
+      <%# <div class="well"> %>
+        <%# <p>ADS</p> %>
+      <%# </div> %>
     </div>
   </div>
 </div>
