@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+  
+  <% if current_user %>
+              <li><%= link_to "#{current_user.user_name}'s Profile", distributor_path(current_user) %></li>
+              <li><%= link_to "Stores", stores_path %></li>
+              <li><%= link_to "Log Out", signout_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_distributor_path %></li>
+              <li><%= link_to "Sign In", login_path %></li>
+            <% end %>
+    <title>RailsGenStore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="wrapper">
+    <%= yield %>
+    <footer class="branding">
+        <small>&copy; 2019 <strong>GenStore</strong></small>
+      </footer>
+      </div>
+  </body>
+</html>
