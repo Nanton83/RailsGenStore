@@ -1,13 +1,14 @@
-<h1>Create New Distributor Here</h1>
-
-
-<%= form_for @distributor do |f| %>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
-    <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
+<div class="container-fluid text-center"> 
+    <h1>Create New Distributor</h1>
    
-    <%= f.submit 'Create Distributor' %>
-<% end %>
+        <%= form_for @distributor do |f| %>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %><br>
+        <%= f.label :user_name %><br>
+        <%= f.text_field :user_name %><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br><br>
+        <%= f.submit 'Create Distributor' %>
+    <% end %>
+    </div>
+    
