@@ -5,5 +5,8 @@
     <%= "Brand Name: #{@item.brand_name.split.map(&:capitalize).join(' ')}" %><br>
     <%= "Sku: #{@item.sku}" %><br>
     <%= "Price: $#{@item.price}" %><br>
+    <% if @item.distributor == current_user %>
+<%= link_to "Edit Item", edit_store_item_path(@item.store, @item) %>
+<% end %><br>
 
 </div>
