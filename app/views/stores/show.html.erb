@@ -1,8 +1,11 @@
 <div class="container-fluid text-center">
-<h1> <%= @store.name.upcase %> </h1><br>
-<% @store.items.each do |item| %>
-<%= link_to "#{item.name.split.map(&:capitalize).join(' ')}", item_path(item) %> <%= "#{item.brand_name.split.map(&:capitalize).join(' ')} - $#{item.price}" %><br>
-<% end %><br>
 
-<%= link_to "Create Item", new_store_item_path(@store) %>
+    <h1> <%= @store.name.upcase %> </h1><br>
+
+    <% @store.items.each do |item| %>
+        <%= link_to "#{item.name.split.map(&:capitalize).join(' ')}", item_path(item) %> <%= "#{item.brand_name.split.map(&:capitalize).join(' ')} - $#{item.price}" %><br>
+    <% end %><br>
+
+    <%= link_to "Create Item", new_store_item_path(@store) %>
+    
 </div>
