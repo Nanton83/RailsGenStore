@@ -71,8 +71,10 @@
       <ul class="nav navbar-nav">
       <% if current_user %>
         <li class="active"><a href="<%= distributor_path(current_user) %>"><%="#{current_user.user_name.capitalize}'s Profile"%></a></li>
-        <li><a href="<%= new_store_path %>">CreateStore</a></li>
-        <li><a href="<%= new_item_path %>">CreateNewItem</a></li>
+        <li><a href="<%= new_store_path %>">Create Store</a></li>
+        <li><a href="<%= new_item_path %>">Create New Item</a></li>
+        <li><a href="<%= items_path %>">All Items</a></li>
+        <li><a href="<%= stores_path %>">All Stores</a></li>
    
         <% end %>
       </ul>

@@ -1,10 +1,11 @@
 
 
 <div class="container-fluid text-center">
-<% current_user.items.each do |item| %>
+<% @items.each do |item| %>
 <%= "#{item.store.name} - #{item.name}" %>
-<%= link_to "Edit Item", edit_store_item_path(item.store, item) %><br>
-
+<% if item.distributor == current_user %>
+<%= link_to "Edit Item", edit_store_item_path(item.store, item) %>
+<% end %><br>
 <% end %>
 </div>
 
