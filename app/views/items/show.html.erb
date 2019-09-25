@@ -1,1 +1,9 @@
-<h1><%= @item.name %></h1>
+<div class="container-fluid text-center">
+
+    <h1><%= "#{@item.name.capitalize}" %></h1><br>
+
+    <%= "Brand Name: #{@item.brand_name.capitalize}" %><br>
+    <%= "Sku: #{@item.sku}" %><br>
+    <%= "Price: $#{@item.price}" %><br>
+
+</div>

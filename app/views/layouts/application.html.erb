@@ -70,7 +70,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
       <% if current_user %>
-        <li class="active"><a href="<%= distributor_path(current_user) %>"><%="#{current_user.user_name}'s Profile"%></a></li>
+        <li class="active"><a href="<%= distributor_path(current_user) %>"><%="#{current_user.user_name.capitalize}'s Profile"%></a></li>
         <li><a href="<%= new_store_path %>">CreateStore</a></li>
         <li><a href="<%= new_item_path %>">CreateNewItem</a></li>
    

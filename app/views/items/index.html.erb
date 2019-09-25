@@ -1,12 +1,11 @@
-<li><%= link_to "#{current_user.user_name}'s Profile", distributor_path(current_user) %></li>
 
 
+<div class="container-fluid text-center">
 <% current_user.items.each do |item| %>
 <%= "#{item.store.name} - #{item.name}" %>
 <%= link_to "Edit Item", edit_store_item_path(item.store, item) %><br>
 
-<% end %><br>
+<% end %>
+</div>
 
-
-    <p><%= link_to 'Create New Item', new_item_path %></p>
     
