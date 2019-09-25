@@ -61,6 +61,10 @@ class ItemsController < ApplicationController
             redirect_to root_path
         end
     end
+
+    def ordered
+        @ordered_items = Item.order(:price)
+    end
     
     private
 

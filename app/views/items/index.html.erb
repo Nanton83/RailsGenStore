@@ -6,7 +6,8 @@
 <% if item.distributor == current_user %>
 <%= link_to "Edit Item", edit_store_item_path(item.store, item) %>
 <% end %><br>
-<% end %>
+<% end %><br>
+<%= link_to "Sort Items By Price", items_ordered_path %>
 </div>
 
     

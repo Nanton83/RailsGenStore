@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
   get '/auth/:provider/callback' => 'sessions#create'
+  get '/items/ordered' => 'items#ordered'
 
   resources :stores do
     resources :items
