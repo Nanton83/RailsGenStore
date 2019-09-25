@@ -75,9 +75,10 @@
         <li><a href="<%= new_item_path %>">Create New Item</a></li>
         <li><a href="<%= items_path %>">All Items</a></li>
         <li><a href="<%= stores_path %>">All Stores</a></li>
-   
         <% end %>
+
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
       <% if !current_user %>
         <li><a href="<%= login_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -91,22 +92,17 @@
 </nav>
   
 <div class="container-fluid text-center">    
+
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <%# <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p> %>
     </div>
     <div class="col-sm-8 text-left"> 
       <%= yield %>
     </div>
     <div class="col-sm-2 sidenav">
-      <%# <div class="well"> %>
-        <%# <p>ADS</p> %>
-      <%# </div> %>
-      <%# <div class="well"> %>
-        <%# <p>ADS</p> %>
-      <%# </div> %>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
     </div>
   </div>
 </div>

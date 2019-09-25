@@ -1,5 +1,4 @@
 <div class="container-fluid text-center">
-
     <h1><%= "#{@item.name.split.map(&:capitalize).join(' ')}" %></h1><br>
     <%= link_to "#{@item.store.name} - #{@item.store.location}", store_path(@item.store) %><br>
     <%= "Brand Name: #{@item.brand_name.split.map(&:capitalize).join(' ')}" %><br>
@@ -8,5 +7,4 @@
     <% if @item.distributor == current_user %>
         <%= link_to "Edit Item", edit_store_item_path(@item.store, @item) %>
     <% end %><br>
-
 </div>

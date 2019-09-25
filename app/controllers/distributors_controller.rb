@@ -10,6 +10,7 @@ class DistributorsController < ApplicationController
             session[:distributor_id] = @distributor.id
             redirect_to distributor_path(@distributor)
         else
+            flash[:notice] = "Sorry, incomplete form.  Please try again."
             render 'new'
         end
     end
@@ -17,6 +18,7 @@ class DistributorsController < ApplicationController
     def show
         if logged_in?
             @distributor = Distributor.find_by(id: params[:id])
+            flash[:notice] = "Welcome!"
             if current_user != @distributor
                 redirect_to root_path
             end

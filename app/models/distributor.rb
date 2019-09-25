@@ -1,7 +1,6 @@
 class Distributor < ApplicationRecord
     has_secure_password
     has_many :items
-    # has_many :stores, through: :items
     has_many :stores, -> {distinct}, through: :items
     validates :email, :presence => true
     validates :email, :uniqueness => true

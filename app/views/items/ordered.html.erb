@@ -1,6 +1,6 @@
 <div class="container-fluid text-center">
-<%@ordered_items.each do |item| %>
-<%= "#{item.name} - #{item.price}" %><br>
-<% end %><br>
-<%= link_to "Back To All Items", items_path %>
+    <%@ordered_items.each do |item| %>
+    <%= "#{item.name} - #{item.price}" %><br>
+    <% end %><br>
+    <%= link_to "Back To All Items", items_path %>
 </div>

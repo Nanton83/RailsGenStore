@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :authenticate_user
+  helper_method :current_user, :logged_in?, :authenticate_user
   
   def home
   end

@@ -1,13 +1,11 @@
-
-
 <div class="container-fluid text-center">
-<% @items.each do |item| %>
-<%= "#{item.store.name} - #{item.name}" %>
-<% if item.distributor == current_user %>
-<%= link_to "Edit Item", edit_store_item_path(item.store, item) %>
-<% end %><br>
-<% end %><br>
-<%= link_to "Sort Items By Price", items_ordered_path %>
+    <% @items.each do |item| %>
+    <%= "#{item.store.name} - #{item.name}" %>
+        <% if item.distributor == current_user %>
+        <%= link_to "Edit Item", edit_store_item_path(item.store, item) %>
+        <% end %><br>
+    <% end %><br>
+    <%= link_to "Sort Items By Price", items_ordered_path %>
 </div>
 
     

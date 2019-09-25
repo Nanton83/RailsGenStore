@@ -2,7 +2,6 @@ require 'pry'
 class SessionsController < ApplicationController
 
     def new
-        
     end
     
     def create
@@ -20,11 +19,8 @@ class SessionsController < ApplicationController
             session[:distributor_id] = distributor.id
             
             redirect_to distributor_path(distributor)
-        else
-            
-            render 'sessions/new'
-        
-        
+        else      
+        render 'sessions/new'
     end
 end
     
@@ -32,5 +28,4 @@ end
         session[:distributor_id] = nil
         redirect_to root_path
     end
-
 end

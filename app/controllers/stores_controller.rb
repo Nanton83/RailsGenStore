@@ -28,6 +28,7 @@ class StoresController < ApplicationController
         if logged_in?
             @store = Store.new(store_params)
             if @store.save
+                flash[:notice] = "Successfully Created A Store!"
                 redirect_to stores_path(@store)
             else
                 redirect_to new_store_path

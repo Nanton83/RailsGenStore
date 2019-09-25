@@ -1,7 +1,8 @@
-<% @stores.each do |store| %>
-
-<%= link_to "#{store.name} - #{store.location}", store_path(store) %><br>
-<% store.items.each do |item| %>
-<%= "#{item.name} - #{item.brand_name} - $#{item.price}" %><br>
-<% end %><br>
-<% end %>
+<div class="container-fluid text-center">
+    <% @stores.each do |store| %>
+    <%= link_to "#{store.name} - #{store.location}", store_path(store) %><br>
+        <% store.items.each do |item| %>
+        <%= "#{item.name} - #{item.brand_name} - $#{item.price}" %><br>
+        <% end %><br>
+    <% end %>
+</div>
