@@ -1,8 +1,8 @@
 <div class="container-fluid text-center">
 
-    <h1><%= "#{@item.name.capitalize}" %></h1><br>
-
-    <%= "Brand Name: #{@item.brand_name.capitalize}" %><br>
+    <h1><%= "#{@item.name.split.map(&:capitalize).join(' ')}" %></h1><br>
+    <%= link_to "#{@item.store.name} - #{@item.store.location}", store_path(@item.store) %><br>
+    <%= "Brand Name: #{@item.brand_name.split.map(&:capitalize).join(' ')}" %><br>
     <%= "Sku: #{@item.sku}" %><br>
     <%= "Price: $#{@item.price}" %><br>
 
