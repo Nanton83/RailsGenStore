@@ -15,13 +15,14 @@ class DistributorsController < ApplicationController
     end
 
     def show
-
-        @distributor = Distributor.find_by(id: params[:id])
-        
-        if current_user != @distributor
+        if logged_in?
+            @distributor = Distributor.find_by(id: params[:id])
+            if current_user != @distributor
+                redirect_to root_path
+            end
+        else
             redirect_to root_path
         end
-        
     end
   
     private

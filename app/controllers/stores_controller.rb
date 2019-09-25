@@ -1,29 +1,39 @@
 class StoresController < ApplicationController
     
     def index
-        @stores = Store.all
+        if logged_in?
+            @stores = Store.all
+        else
+            redirect_to root_path
+        end
     end
 
     def new
-        @store = Store.new
+        if logged_in?
+            @store = Store.new
+        else
+            redirect_to root_path
+        end
     end
 
     def show
-        @store = Store.find_by(id: params[:id])
+        if logged_in?
+            @store = Store.find_by(id: params[:id])
+        else
+            redirect_to root_path
+        end
     end
 
     def create
-    
-        @store = Store.new(store_params)
-        
-       
-        
-        # @store.user_id = current_user.id
-        # binding.pry
-        if @store.save
-            redirect_to stores_path(@store)
+        if logged_in?
+            @store = Store.new(store_params)
+            if @store.save
+                redirect_to stores_path(@store)
+            else
+                redirect_to new_store_path
+            end
         else
-            redirect_to new_store_path
+            redirect_to root_path
         end 
     end
     

@@ -1,42 +1,65 @@
 class ItemsController < ApplicationController
 
     def index
-        if params[:store_id]
-            @items = Store.find(params[:store_id]).items
+        if logged_in?
+            if params[:store_id]
+                @items = Store.find(params[:store_id]).items
+            else
+                @items = Item.all
+            end
         else
-            @items = Item.all
-            # need to update
+            redirect_to root_path
         end
     end
 
     def show
+        if logged_in?
         @store = Store.find_by(id: params[:store_id])
         @item = Item.find_by(id: params[:id])
+        else
+            redirect_to root_path
+        end
     end
 
     def new
-        @item = Item.new
+        if logged_in?
+            @item = Item.new
+        else
+            redirect_to root_path
+        end
     end
 
     def create
-        @item = Item.new(item_params)
-        @item.distributor_id = current_user.id
-        if @item.save
-            redirect_to item_path(@item)
+        if logged_in?
+            @item = Item.new(item_params)
+            @item.distributor_id = current_user.id
+            if @item.save
+                redirect_to item_path(@item)
+            else
+                redirect_to new_item_path
+            end 
         else
-            redirect_to new_item_path
-        end 
+            redirect_to root_path
+        end
     end
 
     def edit
-        @store = Store.find_by(id: params[:store_id])
-        @item = @store.items.find_by(id: params[:id])
+        if logged_in?
+            @store = Store.find_by(id: params[:store_id])
+            @item = @store.items.find_by(id: params[:id])
+            else
+                redirect_to root_path
+        end
     end
 
     def update
-        @item = Item.find_by(id: params[:id])
-        @item.update(item_params)
-        redirect_to item_path(@item)
+        if logged_in?
+            @item = Item.find_by(id: params[:id])
+            @item.update(item_params)
+            redirect_to item_path(@item)
+        else
+            redirect_to root_path
+        end
     end
     
     private
