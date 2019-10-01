@@ -22,11 +22,14 @@ class ItemsController < ApplicationController
     end
 
     def new
-        # if nested
         if logged_in?
-            @item = Item.new
+            if params[:store_id]
+                @item = Item.new(store_id: params[:store_id])
+            elsif
+                @item = Item.new
         else
             redirect_to root_path
+            end
         end
     end
 
