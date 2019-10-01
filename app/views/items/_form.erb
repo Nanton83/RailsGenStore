@@ -1,25 +1,36 @@
-
+<div class="container-fluid text-center">    
+    <% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
 
 <%= form_for @item do |f| %>
 
-    <%= f.collection_select :store_id, Store.all, :id, :name  %><br>
-    
-
+<div class="form-group">
+    <%= f.collection_select :store_id, Store.all, :id, :name  %>
+</div>    
+<div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <br>
-
+  </div>
+<div class="form-group">
     <%= f.label :brand_name %>
     <%= f.text_field :brand_name %>
-    <br>
-
+ </div>
+<div class="form-group">
     <%= f.label :sku %>
     <%= f.number_field :sku %>
-    <br>
-
+ <div>      
+<div class="form-group">
     <%= f.label :price %>
     <%= f.number_field :price %>
-    <br>
-
+ </div>
     <%= f.submit%>
 <% end %>

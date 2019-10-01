@@ -22,9 +22,15 @@ class ItemsController < ApplicationController
     end
 
     def new
-        if logged_in?
+        if logged_in? 
             if params[:store_id]
-                @item = Item.new(store_id: params[:store_id])
+                @store = Store.find_by(id: params[:store_id])
+                
+                if @store
+                    @item = Item.new(store_id: params[:store_id])
+                else
+                    redirect_to stores_path
+                end
             elsif
                 @item = Item.new
         else
