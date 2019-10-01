@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
     end
 
     def new
+        # if nested
         if logged_in?
             @item = Item.new
         else
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
                 flash[:notice] = "Successfully Created An Item"
                 redirect_to item_path(@item)
             else
-                redirect_to new_item_path
+                render :new
             end 
         else
             redirect_to root_path

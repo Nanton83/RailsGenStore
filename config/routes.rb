@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     resources :items
   end
   
-  resources :distributors do 
-    resources :stores
-  end
+  # resources :distributors do 
+  #   resources :stores
+  # end
 
   resources :items
 
