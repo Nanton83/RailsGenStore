@@ -53,24 +53,23 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
     </div>
-    <div class="col-sm-8 text-left"> 
 
-</div>
-
-      <%= yield %>
-      
-    </div>
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-8 text-center"> 
     <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
       <% end %>
+    <%= yield %>
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+    
     </div>
   </div>
 </div>
 
+</body>
 <footer class="container-fluid text-center">
   <small>&copy; 2019 <strong>GenStore</strong></small>
 </footer>
-
-</body>
 </html>
