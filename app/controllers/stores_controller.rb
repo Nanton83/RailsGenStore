@@ -31,6 +31,7 @@ class StoresController < ApplicationController
                 flash[:notice] = "Successfully Created A Store!"
                 redirect_to stores_path(@store)
             else
+                flash[:notice] = "Please Complete Form"
                 redirect_to new_store_path
             end
         else

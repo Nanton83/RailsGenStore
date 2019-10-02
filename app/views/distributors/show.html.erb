@@ -3,5 +3,4 @@
         <% @distributor.stores.each do |store| %>
             <%= link_to "#{store.name.split.map(&:capitalize).join(' ')} - #{store.location.split.map(&:capitalize).join(' ')}", store_path(store) %><br>
         <% end %>
-
 </div>
