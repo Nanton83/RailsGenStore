@@ -1,5 +1,5 @@
 class DistributorsController < ApplicationController
-
+before_action :authenticate_user, only: [:show]
     def new
         @distributor = Distributor.new
     end
@@ -16,13 +16,9 @@ class DistributorsController < ApplicationController
     end
 
     def show
-        if logged_in?
-            @distributor = Distributor.find_by(id: params[:id])
-            flash[:notice] = "Welcome!"
-            if current_user != @distributor
-                redirect_to root_path
-            end
-        else
+        @distributor = Distributor.find_by(id: params[:id])
+        flash[:notice] = "Welcome!"
+        if current_user != @distributor
             redirect_to root_path
         end
     end

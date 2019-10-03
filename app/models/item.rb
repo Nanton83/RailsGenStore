@@ -5,6 +5,7 @@ class Item < ApplicationRecord
     validates :brand_name, :presence => true
     validates :sku, :presence => true
     validates :price, :presence => true
+    
     # scope :branded, -> (brand_name) {where("brand_name LIKE ?", brand_name)}
     
     # def branded(brand_name)
